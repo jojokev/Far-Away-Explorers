@@ -9,6 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "@iconify-json/ion": "^1.2.6",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "astro-icon": "^1.1.5",
+    "swiper": "^12.1.2",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "0.14.1"
   }
 }
