@@ -1,0 +1,81 @@
+---
+import defaultImage from "../assets/default.webp";
+
+const blogImage1 = defaultImage.src;
+const blogImage2 = defaultImage.src;
+const blogImage3 = defaultImage.src;
+
+const blogs = [
+  {
+    title: "4-day Inca Trail Tour Frequently Asked Questions",
+    date: "16 FEB 2026",
+    description:
+      "Descubre cómo disfrutar de la libertad de viajar sin compañía con estos prácticos consejos...",
+    image: blogImage1,
+  },
+  {
+    title: "Qeshuachaca Tourism",
+    date: "16 FEB 2026",
+    description:
+      "Descubre cómo disfrutar de la libertad de viajar sin compañía con estos prácticos consejos...",
+    image: blogImage2,
+  },
+  {
+    title: "Your Checklist for How to Train for Machu Picchu Hiking Tours",
+    date: "16 FEB 2026",
+    description:
+      "Descubre cómo disfrutar de la libertad de viajar sin compañía con estos prácticos consejos...",
+    image: blogImage3,
+  },
+];
+---
+
+<section class="container mx-auto px-2 py-10 md:py-14">
+  <div class="flex w-full flex-col items-center gap-10">
+    <div class="flex w-full flex-col items-start gap-2 text-center font-bold">
+      <p class="w-full text-base leading-5 tracking-[0.2px] text-[#aa5c00]">
+        OUR BLOGS
+      </p>
+      <h2 class="w-full text-3xl leading-7 text-black">
+        Travel Tips and Advice
+      </h2>
+    </div>
+
+    <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        blogs.map((blog) => (
+          <article class="group flex flex-col gap-4">
+            <a
+              href="#"
+              class="block overflow-hidden rounded-lg transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#aa5c00]/60"
+            >
+              <img
+                src={blog.image}
+                alt={blog.title}
+                class="h-[260px] w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+            </a>
+
+            <div class="flex flex-col gap-1 px-1 tracking-[0.2px]">
+              <p class="text-sm font-medium leading-[22px] text-[#aa5c00]">
+                {blog.date}
+              </p>
+              <h3 class="text-base font-semibold leading-5 text-[#151515]">
+                <a
+                  href="#"
+                  class="transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#aa5c00]/60"
+                >
+                  {blog.title}
+                </a>
+              </h3>
+              <p class="text-sm leading-[22px] text-[#151515]">
+                {blog.description}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

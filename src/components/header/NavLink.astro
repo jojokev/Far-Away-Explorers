@@ -1,0 +1,14 @@
+---
+interface Props {
+  text: String;
+  link: URL | "#";
+}
+
+const { text, link } = Astro.props;
+---
+
+<a
+  href={link}
+  class="uppercase font-semibold text-base text-neutral-50 px-2 py-4 block"
+  >{text}</a
+>

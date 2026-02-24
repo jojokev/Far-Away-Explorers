@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+import HeaderHome from "../components/header/HeaderHome.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <HeaderHome />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @layer base {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  }
+</style>

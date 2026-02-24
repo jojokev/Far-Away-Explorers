@@ -1,0 +1,136 @@
+---
+import defaultImage from "../assets/default.webp";
+
+const destinations = {
+  arequipa: {
+    title: "Arequipa",
+    image: defaultImage.src,
+  },
+  lima: {
+    title: "Lima",
+    image: defaultImage.src,
+  },
+  ica: {
+    title: "Ica",
+    image: defaultImage.src,
+  },
+  cusco: {
+    title: "Cusco",
+    image: defaultImage.src,
+  },
+};
+---
+
+<section class="container mx-auto px-2 py-10 md:py-14">
+  <div
+    class="flex w-full flex-col items-center justify-center gap-4 text-center not-italic"
+  >
+    <div class="flex w-full flex-col items-start gap-2 font-bold">
+      <p class="w-full text-base leading-5 tracking-[0.2px] text-[#aa5c00]">
+        EXPLORE
+      </p>
+      <p class="w-full text-[30px] font-bold leading-7 text-black">
+        Our destinations
+      </p>
+    </div>
+    <p
+      class="w-full max-w-[740px] text-base font-medium leading-5 tracking-[0.2px] text-black"
+    >
+      Explore the wonders of our popular destinations
+    </p>
+  </div>
+
+  <div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+    <a
+      href="#"
+      class="group relative block h-[340px] overflow-hidden rounded-2xl no-underline transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#aa5c00] focus-visible:ring-offset-2 sm:h-[420px] md:h-[600px]"
+      aria-label={destinations.arequipa.title}
+    >
+      <img
+        src={destinations.arequipa.image}
+        alt={destinations.arequipa.title}
+        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+      >
+      </div>
+      <h3
+        class="absolute bottom-8 left-8 text-2xl font-semibold leading-7 text-white"
+      >
+        {destinations.arequipa.title}
+      </h3>
+    </a>
+
+    <div
+      class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 md:grid-rows-2"
+    >
+      <a
+        href="#"
+        class="group relative block h-[260px] overflow-hidden rounded-2xl no-underline transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#aa5c00] focus-visible:ring-offset-2 sm:h-[292px]"
+        aria-label={destinations.lima.title}
+      >
+        <img
+          src={destinations.lima.image}
+          alt={destinations.lima.title}
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+        >
+        </div>
+        <h3
+          class="absolute bottom-6 left-6 text-2xl font-semibold leading-7 text-white"
+        >
+          {destinations.lima.title}
+        </h3>
+      </a>
+
+      <a
+        href="#"
+        class="group relative block h-[260px] overflow-hidden rounded-2xl no-underline transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#aa5c00] focus-visible:ring-offset-2 sm:h-[292px]"
+        aria-label={destinations.ica.title}
+      >
+        <img
+          src={destinations.ica.image}
+          alt={destinations.ica.title}
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+        >
+        </div>
+        <h3
+          class="absolute bottom-6 left-6 text-2xl font-semibold leading-7 text-white"
+        >
+          {destinations.ica.title}
+        </h3>
+      </a>
+
+      <a
+        href="#"
+        class="group relative block h-[260px] overflow-hidden rounded-2xl no-underline transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#aa5c00] focus-visible:ring-offset-2 sm:col-span-2 sm:h-[292px]"
+        aria-label={destinations.cusco.title}
+      >
+        <img
+          src={destinations.cusco.image}
+          alt={destinations.cusco.title}
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+        >
+        </div>
+        <h3
+          class="absolute bottom-6 left-6 text-2xl font-semibold leading-7 text-white"
+        >
+          {destinations.cusco.title}
+        </h3>
+      </a>
+    </div>
+  </div>
+</section>

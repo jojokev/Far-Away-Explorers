@@ -1,0 +1,283 @@
+---
+import defaultImage from "../assets/default.webp";
+import prevIcon from "../assets/icons/Vector-2.png";
+import nextIcon from "../assets/icons/Vector-1.png";
+
+const tourImage = defaultImage.src;
+const navPrevIcon = prevIcon.src;
+const navNextIcon = nextIcon.src;
+
+const tours = [
+  {
+    title: "Trekking Montana Arcoiris Palcoyo",
+    location: "Machupicchu",
+    price: "$135.00",
+    capacity: "max. 16",
+    duration: "4 Dias / 3 Noches",
+    featured: "Destacado",
+  },
+  {
+    title: "Trekking Montana Arcoiris Palcoyo",
+    location: "Machupicchu",
+    price: "$135.00",
+    capacity: "max. 16",
+    duration: "4 Dias / 3 Noches",
+    featured: "Destacado",
+  },
+  {
+    title: "Trekking Montana Arcoiris Palcoyo",
+    location: "Machupicchu",
+    price: "$135.00",
+    capacity: "max. 16",
+    duration: "4 Dias / 3 Noches",
+    featured: "Destacado",
+  },
+  {
+    title: "Trekking Montana Arcoiris Palcoyo",
+    location: "Machupicchu",
+    price: "$135.00",
+    capacity: "max. 16",
+    duration: "4 Dias / 3 Noches",
+    featured: "Destacado",
+  },
+];
+---
+
+<section class="container mx-auto px-2 py-10 md:py-14">
+  <div
+    class="mx-auto flex w-full flex-col items-center justify-center gap-8 py-8 text-center not-italic"
+  >
+    <div class="flex w-full flex-col items-start gap-2 font-bold">
+      <p class="w-full text-base leading-5 tracking-[0.2px] text-[#aa5c00]">
+        EXPLORE
+      </p>
+      <h2 class="w-full text-3xl leading-7 text-black">
+        The Best Places to Visit in Cusco and Peru
+      </h2>
+    </div>
+    <p
+      class="w-full max-w-[740px] text-base font-medium leading-5 tracking-[0.2px] text-black"
+    >
+      Explore the wonders of our popular destinations
+    </p>
+
+    <div class="relative w-full px-8 md:px-12">
+      <button
+        type="button"
+        class="tours-button-prev absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 transition-all duration-200 hover:scale-[1.03] hover:opacity-90 md:block"
+        aria-label="Anterior"
+      >
+        <img src={navPrevIcon} alt="" class="h-8 w-[34px]" />
+      </button>
+      <button
+        type="button"
+        class="tours-button-next absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 transition-all duration-200 hover:scale-[1.03] hover:opacity-90 md:block"
+        aria-label="Siguiente"
+      >
+        <img src={navNextIcon} alt="" class="h-8 w-[34px]" />
+      </button>
+
+      <div class="swiper tours-swiper w-full">
+        <div class="swiper-wrapper pb-1">
+          {
+            tours.map((tour) => (
+              <article class="swiper-slide rounded-lg bg-white text-left">
+                <div class="relative">
+                  <a href="#" class="group block overflow-hidden rounded-lg">
+                    <img
+                      src={tourImage}
+                      alt={tour.title}
+                      class="h-[240px] w-full object-cover transition-transform duration-300 will-change-transform group-hover:scale-[1.05]"
+                      loading="lazy"
+                    />
+                  </a>
+                  <div class="absolute right-2 top-2 rounded bg-white px-2 text-sm font-semibold leading-[22px] tracking-[0.2px] text-[#aa5c00]">
+                    {tour.featured}
+                  </div>
+                  <div class="absolute left-1/2 top-[225px] flex w-[298px] -translate-x-1/2 items-center justify-between rounded-lg bg-white px-4 py-1 shadow-[0_4px_4px_0_rgba(140,140,140,0.25)]">
+                    <div class="flex items-center gap-1 text-sm leading-[22px] tracking-[0.2px] text-[rgba(80,80,80,0.87)]">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="size-4"
+                        aria-hidden="true"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                      <span>{tour.capacity}</span>
+                    </div>
+                    <div class="flex items-center gap-1 text-sm leading-[22px] tracking-[0.2px] text-[rgba(80,80,80,0.87)]">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="size-4"
+                        aria-hidden="true"
+                      >
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      <span>{tour.duration}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-2 px-4 pb-4 pt-6">
+                  <div class="border-b border-[rgba(221,221,221,0.87)] pb-2">
+                    <a
+                      href="#"
+                      class="inline-flex transition-all duration-200 hover:opacity-90 hover:-translate-y-[1px]"
+                    >
+                      <h3 class="text-lg font-medium leading-[26px] tracking-[0.2px] text-black">
+                        {tour.title}
+                      </h3>
+                    </a>
+                    <div class="mt-1 flex items-center gap-1 text-sm leading-[22px] tracking-[0.2px] text-[rgba(80,80,80,0.87)]">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="size-4"
+                        aria-hidden="true"
+                      >
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <span>{tour.location}</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <div class="tracking-[0.2px]">
+                      <p class="text-sm leading-[22px] text-[rgba(80,80,80,0.87)]">
+                        Desde
+                      </p>
+                      <p class="text-lg font-bold leading-5 text-black">
+                        {tour.price}
+                      </p>
+                    </div>
+                    <a
+                      href="#"
+                      class="inline-flex items-center gap-1 rounded bg-[#aa5c00] px-3 py-2 text-base font-medium leading-5 tracking-[0.2px] text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-[1px]"
+                    >
+                      Explora
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="h-3 w-[14px]"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-center">
+        <div class="tours-pagination" aria-label="Paginacion de tours"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  new Swiper(".tours-swiper", {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1.1,
+    spaceBetween: 12,
+    pagination: {
+      el: ".tours-pagination",
+      clickable: true,
+      bulletClass: "swiper-pagination-bullet tours-pagination-bullet",
+      bulletActiveClass:
+        "swiper-pagination-bullet-active tours-pagination-bullet-active",
+    },
+    navigation: {
+      prevEl: ".tours-button-prev",
+      nextEl: ".tours-button-next",
+      disabledClass: "tours-nav-disabled",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+    },
+  });
+</script>
+
+<style>
+  .tours-pagination {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+  }
+
+  :global(.tours-pagination .tours-pagination-bullet) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    border: 1px solid #aa5c00;
+    background: transparent;
+    box-shadow: none;
+    transition:
+      background 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+    cursor: pointer;
+  }
+
+  :global(.tours-pagination .tours-pagination-bullet:hover) {
+    border-color: #aa5c00;
+    background: #aa5c00;
+    transform: translateY(-1px);
+  }
+
+  :global(.tours-pagination .tours-pagination-bullet:focus-visible) {
+    outline: 2px solid rgba(170, 92, 0, 0.45);
+    outline-offset: 2px;
+  }
+
+  :global(.tours-pagination .tours-pagination-bullet-active) {
+    background: #aa5c00;
+    border-color: #aa5c00;
+    box-shadow: 0 6px 16px rgba(170, 92, 0, 0.2);
+    transform: scale(1.1);
+  }
+
+  .tours-nav-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  name: String;
+  link: URL | "#";
+}
+const { name, link } = Astro.props;
+---
+
+<a href={link} class="px-2 py-2 text-zinc-500">
+  <Icon name={name} class="hover:text-primary text-xl duration-300" />
+</a>

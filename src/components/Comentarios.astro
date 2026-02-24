@@ -1,0 +1,220 @@
+---
+import defaultImage from "../assets/default.webp";
+import avatar from "../assets/comment-avatar.png";
+import prevIcon from "../assets/icons/Vector-3.png";
+import nextIcon from "../assets/icons/Vector-4.png";
+import score from "../assets/icons/Score.png";
+import tripadvisor from "../assets/icons/Tripadvisor.png";
+import { Icon } from "astro-icon/components";
+
+const reviewerAvatar = avatar.src;
+const navPrevIcon = prevIcon.src;
+const reviewScoreImage = score.src;
+const tripadvisorIcon = tripadvisor.src;
+const navNextIcon = nextIcon.src;
+const ctaArrowIcon = defaultImage.src;
+
+const reviews = Array.from({ length: 4 }, () => ({
+  comment:
+    "Thanks to Cristian and Jaier, we had an unforgettable experience on our Rainbow Mountain tour and are having the time or our lives in Peru. In spite of cloudy and snowy conditions, Cristian's patience and wisdom made our time at Rainbow Mountain simply magical.",
+  user: "RyanNfromAthensUSA",
+  tag: "Family",
+  date: "Written July 14, 2025",
+}));
+---
+
+<section class="container mx-auto px-2 py-10 md:py-14">
+  <div
+    class="mx-auto flex w-full flex-col items-center justify-center gap-10 py-8 text-center not-italic"
+  >
+    <div class="flex w-full flex-col items-start gap-2 font-bold">
+      <p class="w-full text-base leading-5 tracking-[0.2px] text-[#aa5c00]">
+        DESTINOS
+      </p>
+      <h2 class="w-full text-3xl leading-7 text-black">HAPPY TRAVELERS</h2>
+    </div>
+
+    <div class="relative w-full px-8 md:px-12">
+      <button
+        type="button"
+        class="comentarios-button-prev absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 transition-all duration-200 hover:scale-[1.03] hover:opacity-90 md:block"
+        aria-label="Anterior"
+      >
+        <img src={navPrevIcon} alt="" class="size-6" />
+      </button>
+      <button
+        type="button"
+        class="comentarios-button-next absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 transition-all duration-200 hover:scale-[1.03] hover:opacity-90 md:block"
+        aria-label="Siguiente"
+      >
+        <img src={navNextIcon} alt="" class="size-6" />
+      </button>
+
+      <div class="swiper comentarios-swiper w-full">
+        <div class="swiper-wrapper pb-1">
+          {
+            reviews.map((review) => (
+              <article class="swiper-slide relative rounded-lg border border-[rgba(221,221,221,0.45)] bg-white p-4 text-left">
+                <p class="text-[15px] leading-[24px] text-[#15252d]">
+                  {review.comment}
+                </p>
+
+                <div class="mt-4 flex items-center gap-4">
+                  <img
+                    src={reviewerAvatar}
+                    alt={review.user}
+                    class="size-[88px] rounded-full object-cover"
+                    loading="lazy"
+                  />
+
+                  <div class="min-w-0">
+                    <h3 class="text-[18px] font-bold leading-tight text-[#15252d]">
+                      {review.user}
+                    </h3>
+
+                    <img
+                      src={reviewScoreImage}
+                      alt="Score"
+                      class="mt-1 h-[14px] w-[78px]"
+                      loading="lazy"
+                    />
+
+                    <div class="mt-1 flex items-center gap-1 text-xs text-[#666]">
+                      <Icon
+                        name="ion:pricetag"
+                        class="size-4 text-[#666]"
+                        aria-hidden="true"
+                      />
+                      <span>{review.tag}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex items-center gap-1 text-xs text-[#666]">
+                  <Icon
+                    name="ion:calendar"
+                    class="size-4 text-[#666]"
+                    aria-hidden="true"
+                  />
+                  <span>{review.date}</span>
+                </div>
+
+                <img
+                  src={tripadvisorIcon}
+                  alt="Tripadvisor"
+                  class="absolute bottom-4 right-4 h-10 w-10"
+                  loading="lazy"
+                />
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-center">
+        <div
+          class="comentarios-pagination"
+          aria-label="Paginacion de comentarios"
+        >
+        </div>
+      </div>
+    </div>
+
+    <a
+      href="#"
+      class="inline-flex items-center gap-1 rounded-lg bg-[#00852f] px-4 py-2 text-base font-semibold text-white transition-all duration-200 hover:-translate-y-[1px] hover:opacity-90"
+    >
+      View All Reviews
+      <Icon name="ion:arrow-forward" class="size-[14px] text-white" aria-hidden="true" />
+    </a>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  new Swiper(".comentarios-swiper", {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1.1,
+    spaceBetween: 12,
+    pagination: {
+      el: ".comentarios-pagination",
+      clickable: true,
+      bulletClass: "swiper-pagination-bullet comentarios-pagination-bullet",
+      bulletActiveClass:
+        "swiper-pagination-bullet-active comentarios-pagination-bullet-active",
+    },
+    navigation: {
+      prevEl: ".comentarios-button-prev",
+      nextEl: ".comentarios-button-next",
+      disabledClass: "comentarios-nav-disabled",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      },
+    },
+  });
+</script>
+
+<style>
+  .comentarios-pagination {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+  }
+
+  :global(.comentarios-pagination .comentarios-pagination-bullet) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    border: 1px solid #00852f;
+    background: transparent;
+    box-shadow: none;
+    transition:
+      background 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+    cursor: pointer;
+  }
+
+  :global(.comentarios-pagination .comentarios-pagination-bullet:hover) {
+    border-color: #00852f;
+    background: #00852f;
+    transform: translateY(-1px);
+  }
+
+  :global(
+    .comentarios-pagination .comentarios-pagination-bullet:focus-visible
+  ) {
+    outline: 2px solid rgba(0, 133, 47, 0.45);
+    outline-offset: 2px;
+  }
+
+  :global(.comentarios-pagination .comentarios-pagination-bullet-active) {
+    background: #00852f;
+    border-color: #00852f;
+    box-shadow: 0 6px 16px rgba(0, 133, 47, 0.25);
+    transform: scale(1.1);
+  }
+
+  .comentarios-nav-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+</style>
